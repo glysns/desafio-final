@@ -1,10 +1,12 @@
 package mjv.java.desafiofinal.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import mjv.java.desafiofinal.model.Cadastro;
 import mjv.java.desafiofinal.repository.CadastroRepository;
 
+@Service
 public class CadastroService {
 	@Autowired
 	private CadastroRepository repository;
