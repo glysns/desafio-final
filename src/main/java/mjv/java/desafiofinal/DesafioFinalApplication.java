@@ -18,7 +18,7 @@ public class DesafioFinalApplication {
 	@Bean
     public CommandLineRunner run(ApplicationSample bean) throws Exception {
         return args -> {
-           bean.cadastroSample();
+           //bean.cadastroSample();
         };
     }
 }
