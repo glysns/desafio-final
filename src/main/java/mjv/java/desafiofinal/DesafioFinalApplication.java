@@ -9,7 +9,8 @@ import mjv.java.desafiofinal.sample.ApplicationSample;
 
 @SpringBootApplication
 public class DesafioFinalApplication {
-
+	//h2-console: http://localhost:8080/h2-console
+	//swagger: http://localhost:8080/swagger-ui.html
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioFinalApplication.class, args);
 		System.out.println("Zezinho ... ");
