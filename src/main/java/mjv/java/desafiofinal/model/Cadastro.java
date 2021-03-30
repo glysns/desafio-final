@@ -1,5 +1,6 @@
 package mjv.java.desafiofinal.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +13,15 @@ public class Cadastro {
 	@Id
 	@GeneratedValue(strategy  = GenerationType.IDENTITY)
 	private Integer id;
-	private String login;
+	@Embedded
+	private Login login;
 	public Integer getId() {
 		return id;
 	}
-	public String getLogin() {
+	public Login getLogin() {
 		return login;
 	}
-	public void setLogin(String login) {
+	public void setLogin(Login login) {
 		this.login = login;
 	}
 }
