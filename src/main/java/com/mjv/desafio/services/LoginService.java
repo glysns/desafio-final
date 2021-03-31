@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mjv.desafio.config.security.JWTConstants;
 import com.mjv.desafio.config.security.JWTUtils;
 import com.mjv.desafio.dto.Sessao;
+import com.mjv.desafio.exception.config.BusinessException;
 import com.mjv.desafio.model.Cadastro;
 import com.mjv.desafio.model.Login;
 import com.mjv.desafio.repository.CadastroRepository;
@@ -44,12 +45,12 @@ public class LoginService {
 				sessao.setToken(token);
 				return sessao;
 			}else {
-				throw new RuntimeException("Senha inválida");
+				throw new BusinessException("Senha inválida");
 			}
 			
 			
 		}
 		
-		throw new RuntimeException("Login inválido");
+		throw new BusinessException("Login inválido");
 	}
 }
