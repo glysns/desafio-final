@@ -10,6 +10,7 @@ import com.mjv.desafio.config.security.JWTConstants;
 import com.mjv.desafio.config.security.JWTUtils;
 import com.mjv.desafio.dto.Sessao;
 import com.mjv.desafio.exception.config.BusinessException;
+import com.mjv.desafio.exception.config.CampoObrigatorioException;
 import com.mjv.desafio.model.Cadastro;
 import com.mjv.desafio.model.Login;
 import com.mjv.desafio.repository.CadastroRepository;
@@ -25,6 +26,9 @@ public class LoginService {
 	private PasswordEncoder encoder;
 
 	public Sessao logar(Login login) {
+		if(login.getUsuario()==null || login.getUsuario().isEmpty())
+			throw new CampoObrigatorioException("Usuario");
+		
 		Cadastro usuario = repository.findByLoginUsuario(login.getUsuario());
 		if(usuario!=null) {
 			
