@@ -2,13 +2,27 @@ package com.mjv.desafio.model.biblioteca;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "loc_item")
 public class LocacaoItem {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate dataPrevisaoEntrega;
 	private LocalDate dataEntrega;
 	private Integer diarias;
 	private Double valorDiaria;
 	private Double valorLocacao;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_livro")
 	private Livro livro;
 	public Livro getLivro() {
 		return livro;

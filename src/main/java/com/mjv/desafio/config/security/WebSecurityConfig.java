@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//temporário
 		.antMatchers("/cadastros").permitAll()
 		.antMatchers("/livros").permitAll()
+		.antMatchers("/locacoes").permitAll()
 		.anyRequest().authenticated()
 		.and().headers().frameOptions().sameOrigin()
 		.and()

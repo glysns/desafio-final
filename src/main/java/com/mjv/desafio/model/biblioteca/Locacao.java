@@ -3,14 +3,30 @@ package com.mjv.desafio.model.biblioteca;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.mjv.desafio.model.Cadastro;
 
+@Entity
+@Table(name = "locacao")
 public class Locacao {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate dataAgendamento;
 	private LocalDate dataRetirada;
 	private LocalDate dataFinalizacao;
+	@OneToMany
 	private List<LocacaoItem> itens;
+	@ManyToOne
+	@JoinColumn(name = "id_cadastro")
 	private Cadastro cadastro;
 	private Double valorTotal;
 	public Double getValorTotal() {
