@@ -1,7 +1,11 @@
 package com.mjv.desafio;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.mjv.desafio.sample.ApplicationSample;
 
 @SpringBootApplication
 //@EnableFeignClients
@@ -9,12 +13,12 @@ public class DesafioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
 	}
-	
-//	@Bean
-//	public CommandLineRunner run(ApplicationSample bean) throws Exception {
-//		return args -> {
-//			bean.criarCadastro();
-//		};
-//	}
+
+	@Bean
+	public CommandLineRunner run(ApplicationSample bean) throws Exception {
+		return args -> {
+			bean.simularLocacao();
+		};
+	}
 
 }
