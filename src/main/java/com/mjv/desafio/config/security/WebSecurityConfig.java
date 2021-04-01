@@ -38,9 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/login").permitAll()
 		.antMatchers("/h2-console/**").permitAll()
 		//temporário
-		.antMatchers("/cadastros").permitAll()
-		.antMatchers("/livros").permitAll()
-		.antMatchers("/locacoes").permitAll()
+		//.antMatchers("/cadastros").permitAll()
+		//.antMatchers("/livros").permitAll()
+		//.antMatchers("/locacoes").permitAll()
 		.anyRequest().authenticated()
 		.and().headers().frameOptions().sameOrigin()
 		.and()
