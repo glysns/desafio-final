@@ -24,6 +24,17 @@ public class LocacaoItem {
 	@ManyToOne
 	@JoinColumn(name = "id_livro")
 	private Livro livro;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_locacao")
+	private Locacao locacao;
+	
+	public Locacao getLocacao() {
+		return locacao;
+	}
+	public void setLocacao(Locacao locacao) {
+		this.locacao = locacao;
+	}
 	public Livro getLivro() {
 		return livro;
 	}

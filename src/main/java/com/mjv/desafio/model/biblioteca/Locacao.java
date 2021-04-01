@@ -1,8 +1,10 @@
 package com.mjv.desafio.model.biblioteca;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +25,19 @@ public class Locacao {
 	private LocalDate dataAgendamento;
 	private LocalDate dataRetirada;
 	private LocalDate dataFinalizacao;
-	@OneToMany
-	private List<LocacaoItem> itens;
+	@OneToMany(mappedBy = "locacao", cascade = CascadeType.PERSIST)
+	private List<LocacaoItem> itens =  new ArrayList<LocacaoItem>();
 	@ManyToOne
 	@JoinColumn(name = "id_cadastro")
 	private Cadastro cadastro;
-	private Double valorTotal;
+	private Double valorTotal = 0.0;
+	
+	public void addItem(LocacaoItem item) {
+		item.setLocacao(this);
+		this.valorTotal = this.valorTotal + item.getValorLocacao();
+		itens.add(item);
+	}
+	
 	public Double getValorTotal() {
 		return valorTotal;
 	}
